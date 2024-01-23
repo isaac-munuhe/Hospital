@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controller\HomeController;
+use App\Http\Controllers\Homecontroller as ControllersHomecontroller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',[HomeController::class, 'redirect']);
+Route::get('/admin', function () {
+    return view('admin.home');
+});
 
 Route::middleware([
     'auth:sanctum',
