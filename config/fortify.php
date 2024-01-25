@@ -1,8 +1,6 @@
 <?php
 
 use Laravel\Fortify\Features;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 return [
 
@@ -75,22 +73,8 @@ return [
     |
     */
 
-    /*'home' => '/dashboard',
-    */
+    'home' => '/dashboard',
 
-    'home' => function () {
-         if (Auth::id()) {
-        if (Auth::user()->usertype =='0') {
-            return '/dashboard';
-        } else {
-            return '/admin';
-        }
-    } else {
-        return '/login';
-    }
-},
-
-// Other methods and properties of the controller, if any
     /*
     |--------------------------------------------------------------------------
     | Fortify Routes Prefix / Subdomain

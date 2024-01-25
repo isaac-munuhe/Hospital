@@ -10,7 +10,7 @@ use App\Models\User;
 class Homecontroller extends Controller
 {
     public function redirect()
-    {dd('hey');
+    {
         if (Auth::id()) {
             if (Auth::user()->usertype =='0') {
                 return view('dashboard');
@@ -22,6 +22,9 @@ class Homecontroller extends Controller
         }
     }
 
-    // Other methods and properties of the controller, if any
+ public function index()
+ {
+    return view('user.home');
+ }
 } 
 
