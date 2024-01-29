@@ -18,14 +18,12 @@ use App\Http\Controllers\Homecontroller as ControllersHomecontroller;
 
 Route::get('/',[HomeController::class,'index']);
 
-Route::get('home',[HomeController::class,'redirect']);
+// Route::get('home',[HomeController::class,'redirect']);
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified',
+    'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 });

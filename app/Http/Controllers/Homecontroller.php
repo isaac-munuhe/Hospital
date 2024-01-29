@@ -9,11 +9,11 @@ use App\Models\User;
 
 class Homecontroller extends Controller
 {
-    public function redirect()
+    public function dashboard()
     {
         if (Auth::id()) {
             if (Auth::user()->usertype =='0') {
-                return view('dashboard');
+                return view('user.home');
             } else {
                 return view('admin.home');
             }
